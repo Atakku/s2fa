@@ -11,7 +11,7 @@ pub type Res<T> = Result<T, Box<dyn std::error::Error>>;
 #[get("/")]
 async fn gen_code() -> Res<String> {
     let time = Time::with_offset().await?;
-    let secret = Secret::from_hex(&std::env::var("SECRET")?)?;
+    let secret = Secret::from_b64(&std::env::var("SECRET")?)?;
     Ok(generate_auth_code(secret, time))
 }
 
