@@ -9,7 +9,7 @@ COPY . .
 RUN cargo build --release
 # Deploy the project
 FROM docker.io/library/rust:slim
-WORKDIR /app
-RUN apt-get update && apt-get install -y ca-certificates libssl3 openssl && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /build/target/release/s2fa /app/s2fa
+WORKDIR /data
 CMD ["s2fa"]
+RUN apt-get update && apt-get install -y ca-certificates libssl3 openssl && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /build/target/release/s2fa /bin/s2fa
