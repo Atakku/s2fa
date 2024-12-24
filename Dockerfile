@@ -12,4 +12,4 @@ FROM docker.io/library/rust:slim
 WORKDIR /app
 RUN apt-get update && apt-get install -y ca-certificates libssl3 openssl && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /build/target/release/s2fa /app/s2fa
-CMD ["./s2fa"]
+CMD ["/app/s2fa"]
