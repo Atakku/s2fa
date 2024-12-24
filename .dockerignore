@@ -2,6 +2,8 @@ debug/
 target/
 **/*.rs.bk
 *.pdb
+.dockerignore
+.gitignore
 Cargo.lock
 Dockerfile
 LICENSE-*
